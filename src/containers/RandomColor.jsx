@@ -12,11 +12,17 @@ const colors = [
 export default class RandomColor extends Component {
 
   state = {
-    bgColor: '#FFAFCC',
+    bgColor: '',
   }
 
   colorChange = () => {
-    return colors.map(item => this.setState = { bgColor: item });
+    const stuff = Math.floor(Math.random() * colors.length);
+
+    this.setState({ bgColor: colors[stuff] });
+  }
+
+  componentDidMount() {
+    setInterval(() => this.colorChange(), 1000);
   }
 
 
